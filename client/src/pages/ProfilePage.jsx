@@ -30,6 +30,8 @@ const ProfilePage = () => {
     profilepicture: user.profilepicture || '',
   });
 
+  console.log("Edited User:", editedUser);
+
   useEffect(() => {
     // Fetch courses from the backend
     axios.get('http://localhost:8000/api/enrollment/courses')
@@ -179,7 +181,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="profile-page">
+    <div className="profile-page ">
       <section className="topsection-parent">
         <div className="topsection">
           <div className="container-parent">
@@ -199,15 +201,23 @@ const ProfilePage = () => {
                   </thead>
                   <tbody>
                     {courses
-                      .filter(course => user && user.username && course.users.includes(user.username))
-                      .map(course => (
+                      .filter(
+                        (course) =>
+                          user &&
+                          user.username &&
+                          course.users.includes(user.username)
+                      )
+                      .map((course) => (
                         <tr key={course._id} className="post">
                           <td className="post-title">{course.coursename}</td>
                           <td>{course.grade}</td>
                           <td>{course.credit}</td>
                           <td>{course.state}</td>
                           <td>
-                            <button className="enroll-button" onClick={() => handleEnroll(course.coursename)}>
+                            <button
+                              className="enroll-button"
+                              onClick={() => handleEnroll(course.coursename)}
+                            >
                               Enrolled
                             </button>
                           </td>
@@ -216,8 +226,7 @@ const ProfilePage = () => {
                   </tbody>
                 </table>
               </div>
-              <div className="frame-parent">
-              </div>
+              <div className="frame-parent"></div>
             </div>
           </div>
           <div className="container-parent">
@@ -236,15 +245,26 @@ const ProfilePage = () => {
                   </thead>
                   <tbody>
                     {posts
-                      .filter(post => user && user.username && post.author === user.username)
-                      .map(post => (
+                      .filter(
+                        (post) =>
+                          user && user.username && post.author === user.username
+                      )
+                      .map((post) => (
                         <tr key={post._id} className="post">
                           <td className="post-title">{post.title}</td>
                           <td>{post.tags}</td>
                           <td>{post.author}</td>
                           <td>
-                            <button className="like-button" onClick={() => handleLike(post._id)}>
-                              {user && user.username && post.likes.includes(user.username) ? 'Liked' : 'Like'} ({post.likes.length})
+                            <button
+                              className="like-button"
+                              onClick={() => handleLike(post._id)}
+                            >
+                              {user &&
+                              user.username &&
+                              post.likes.includes(user.username)
+                                ? "Liked"
+                                : "Like"}{" "}
+                              ({post.likes.length})
                             </button>
                           </td>
                         </tr>
@@ -258,106 +278,69 @@ const ProfilePage = () => {
         </div>
       </section>
       <div className="sidebar">
-        <div className="top">
+        <div className="top flex-1">
           <button
             className="edit-user"
             onClick={isEditing ? handleSave : handleEdit}
           >
             {isEditing ? "Save" : "Edit"}
           </button>
-          <button
-            onClick={handleCancel}
-          >
-            Cancel
-          </button>
+          <button onClick={handleCancel}>Cancel</button>
           <button onClick={logout}>Logout</button>
-          <div className="frame1">
-            <div className="frame2">
-              
-              <div className="profile-container">
-                {isEditing ? (
-                  <>
-                    <img
-                      className="pngitem-1468281-1-icon"
-                      alt=""
-                      src={
-                        editedUser.profilePicture
-                          ? URL.createObjectURL(editedUser.profilePicture)
-                          : "/pngitem-1468281-1@2x.png"
-                      }
-                    />
-                    <input
-                      type="file"
-                      className="user-image"
-                      accept="image/*"
-                      onChange={handleFileChange}
-                      disabled={!isEditing}
-                    />
-                  </>
-                ) : (
-                  <img
-                    className="pngitem-1468281-1-icon"
-                    alt=""
-                    src="/pngitem-1468281-1@2x.png"
-                  />
-                )}
-              </div>
-              
-              <div className="frame3">
-                <div className="frame4">
-                  {isEditing ? (
-                    <>
-                      <h3 className="john-doe">
-                        <input
-                          type="text"
-                          value={editedUser.username}
-                          onChange={(e) =>
-                            setEditedUser({
-                              ...editedUser,
-                              username: e.target.value,
-                            })
-                          }
-                        />
-                      </h3>
-                      <div className="kmitlacth">
-                        <input
-                          type="text"
-                          value={editedUser.email}
-                          onChange={(e) =>
-                            setEditedUser({
-                              ...editedUser,
-                              email: e.target.value,
-                            })
-                          }
-                        />
-                      </div>
-                      <div className="id-65011000">
-                        <input
-                          type="text"
-                          value={user.uid}
-                          onChange={(e) =>
-                            setEditedUser({
-                              ...editedUser,
-                              editedId: e.target.value,
-                            })
-                          }
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <h3 className="john-doe">{editedUser.username}</h3>
-                      <div className="kmitlacth">{editedUser.email}</div>
-                      <div className="id-65011000">ID: {user.uid}</div>
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="gender-male">
+          <div className="gender-male  h-32 justify-between items-start">
             {isEditing ? (
-              <>
+              <div>
+                <p>Profile Image:</p>
+                <img
+                  className="pngitem-1468281-1-icon"
+                  alt=""
+                  src={
+                    editedUser.profilePicture
+                      ? URL.createObjectURL(editedUser.profilePicture)
+                      : "/pngitem-1468281-1@2x.png"
+                  }
+                />
+                <input
+                  type="file"
+                  className="user-image"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  disabled={!isEditing}
+                />
+                <p>Username:</p>
+                <input
+                  type="text"
+                  value={editedUser.username}
+                  onChange={(e) =>
+                    setEditedUser({
+                      ...editedUser,
+                      username: e.target.value,
+                    })
+                  }
+                />
+                <p>Email:</p>
+                <input
+                  type="text"
+                  value={editedUser.email}
+                  onChange={(e) =>
+                    setEditedUser({
+                      ...editedUser,
+                      email: e.target.value,
+                    })
+                  }
+                />
+                <p>ID:</p>
+                <input
+                  type="text"
+                  value={user.id}
+                  onChange={(e) =>
+                    setEditedUser({
+                      ...editedUser,
+                      editedId: e.target.value,
+                    })
+                  }
+                />
+                <p>Edit</p>
                 Gender:
                 <input
                   type="text"
@@ -366,14 +349,6 @@ const ProfilePage = () => {
                     setEditedUser({ ...editedUser, gender: e.target.value })
                   }
                 />
-              </>
-            ) : (
-              `Gender: ${editedUser.gender}`
-            )}
-          </div>
-          <div className="birthday-january-1">
-            {isEditing ? (
-              <>
                 Birthday:
                 <input
                   type="text"
@@ -382,37 +357,16 @@ const ProfilePage = () => {
                     setEditedUser({ ...editedUser, birthday: e.target.value })
                   }
                 />
-              </>
-            ) : (
-              `Birthday: ${editedUser.birthday.slice(0, -14)}`
-            )}
-          </div>
-          {isEditing ? (
-            <div className="user-description">
-              About:
-              <textarea
-                value={editedUser.description}
-                onChange={(e) =>
-                  setEditedUser({
-                    ...editedUser,
-                    description: e.target.value,
-                  })
-                }
-              />
-            </div>
-          ) : (
-            <div className="user-description">
-              About: {editedUser.description}
-            </div>
-          )}
-          <div className="nicepng-location-pin-png-12898-parent">
-            <img
-              className="nicepng-location-pin-png-12898-icon"
-              alt=""
-              src="/nicepng-locationpinpng-1289813-1@2x.png"
-            />
-            {isEditing ? (
-              <>
+                About:
+                <textarea
+                  value={editedUser.description}
+                  onChange={(e) =>
+                    setEditedUser({
+                      ...editedUser,
+                      description: e.target.value,
+                    })
+                  }
+                />
                 Address:
                 <input
                   type="text"
@@ -421,12 +375,39 @@ const ProfilePage = () => {
                     setEditedUser({ ...editedUser, address: e.target.value })
                   }
                 />
-              </>
+              </div>
             ) : (
-              <div className="moo-2">{editedUser.address}</div>
+              <div className="flex flex-col h-32 ">
+                <div className="flex flex-row mb-6">
+                  <div className="w-16 h-16">
+                    <img
+                      src="/pngitem-1468281-1@2x.png"
+                      alt=""
+                      className="w-full h-full object cover"
+                    />
+                  </div>
+                  <h3 className="font-bold text-3xl  text-start ">
+                    {editedUser.username}
+                  </h3>
+                </div>
+                <div className="space-y-3">
+                  <p>{editedUser.email}</p>
+                  <p>ID: {user.id}</p>
+                  <p>Gender: {editedUser.gender}</p>
+                  <p>Birthday: {editedUser.birthday.slice(0, -14)}</p>
+                  <p>About: {editedUser.description}</p>
+                  <div className="flex space-x-4 items-center justify-start mt-8">
+                    <img
+                      alt=""
+                      src="/nicepng-locationpinpng-1289813-1@2x.png"
+                      className="nicepng-location-pin-png-12898-icon"
+                    />
+                    <p>{editedUser.address}</p>
+                  </div>
+                </div>
+              </div>
             )}
           </div>
-          <div className="top-divider2" />
         </div>
       </div>
     </div>
