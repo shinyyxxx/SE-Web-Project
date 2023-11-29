@@ -37,6 +37,7 @@ function App() {
         <Route path='/enrollment' element = {<EnrollmentPage />} />
         <Route path='/booking' element = {<BookingPage />} />
       </Routes>
+      <p></p>
     </UserContextProvider>
   )
 }
