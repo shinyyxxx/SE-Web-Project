@@ -1,0 +1,333 @@
+:root 
+{
+  font-size: 16px;
+  font-family: 'Libre Baskerville', serif;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: rgb(9, 9, 59);
+  --bg-secondary: grey;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body 
+{
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar
+{
+  width:0.5rem;
+}
+
+body::-webkit-scrollbar-track
+{
+  background: grey;
+}
+
+body::-webkit-scrollbar-thumb
+{
+  background: rgb(9, 9, 59);
+}
+
+main 
+{
+  margin: 0;
+  margin-left: 6rem;
+}
+
+.navbar
+{
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 200ms ease;
+  z-index: 1;
+}
+
+.navbar-nav
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-item
+{
+  width: 100%;
+}
+
+.nav-link
+{
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: grayscale(100%); opacity: 0.7;
+  transition: 600ms;
+}
+
+.link-text
+{
+  display: none;
+  margin-left: 1.5rem;
+  flex: 1;
+  align-items: center;
+}
+
+.nav-link svg
+{
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+
+html 
+{
+  scroll-behavior: smooth;
+}
+
+.container1 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh; 
+}
+
+h1 
+{
+  font-size: calc(3vh + 2.5vw);
+}
+
+h3
+{
+  font-size: calc (1.5vh + 1.25vw);
+}
+
+h4
+{
+  font-size: calc (1.25vh + 1vw);
+}
+
+p 
+{
+  font-size: calc(1vh + 0.75vw);
+  color: gray;
+}
+
+
+
+.container2 
+{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: aliceblue;
+}
+
+.text-box 
+{
+  flex: 1;
+  padding: 20px;
+  margin: 8px;
+  min-width: 150px;
+}
+
+.container3 
+{
+  display: flex;
+  background-color: aliceblue;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-box2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  margin: 8px;
+  overflow: auto;
+  border-left: 1px solid black;
+}
+
+.rotated-text {
+  transform: rotate(180deg); 
+  writing-mode: vertical-lr;
+  white-space: nowrap;
+  margin: auto;
+  z-index: 1;
+}
+
+.icons{
+  list-style: none;
+  text-align: center;
+}
+.icons li{
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+  position: relative;
+}
+.icons li:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  border-radius: 10%;
+  background: linear-gradient(45deg, lightblue, white);
+  transition: all 0.3s ease-in;
+}
+.icons li:hover:before{
+  transform: rotate(360deg);
+  border-radius: 100%;
+}
+.icons li a span{
+  font-size: 27px;
+  line-height: 70px;
+  color: rgb(9, 9, 59);
+  transition: all 0.3s ease-out;
+}
+.icons li:hover a span{
+  transform: scale(1.2);
+}
+
+@media only screen and (max-width: 510px)
+{
+  .navbar
+  {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+    z-index: 2;
+  }
+
+  .navbar-nav
+  {
+    flex-direction: row;
+  }
+
+  .nav-link
+  {
+    justify-content: center;
+  }
+
+  main
+  {
+    margin: 0;
+    margin-top: 1rem;
+  }
+
+  .nav-item
+  {
+    position: relative;
+    bottom: auto;
+    width: auto;
+    margin: 10px;
+    margin-bottom: 10px;
+  }
+
+  .nav-link:hover
+  {
+    filter: none;
+  }
+
+  .nav-link:hover .image
+  {
+    fill: yellow;
+  }
+
+  .image
+  {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 10px;
+    padding-right: 15px;
+    fill: white;
+  }
+  
+
+}
+
+@media only screen and (min-width: 510px)
+{
+  .navbar
+  {
+    top: 0;
+    width: 6rem;
+    height:100vh;
+  }
+  .navbar:hover
+  {
+    width: 16rem;
+  }
+  .navbar:hover .link-text
+  {
+    display: inline;
+    transition: opacity 600ms;
+  }
+  .nav-item:last-child  
+  {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .nav-item:nth-last-child(2)
+  {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+  }
+
+  .nav-link:hover
+  {
+    filter: grayscale(0%); opacity: 1;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+
+  .nav-link:hover .image
+  {
+    fill: black;
+  }
+
+  .image
+  {
+    width: 45px;
+    height: 45px;
+    margin-top: 20px;
+    padding-right: 15px;
+    fill: white;
+  }
+  
+}
+
+@media only screen and (max-height: 559px)
+{
+
+  .nav-item:last-child {
+    display: none;
+  }
+
+  .nav-item:nth-last-child(2) {
+    display: none;
+  }
+}

@@ -1,0 +1,65 @@
+/* PostList.css */
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+.post {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+    max-width: 600px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.post-title {
+    font-weight: bold;
+}
+
+.like-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.like-button:hover {
+    background-color: #3da340;
+}
+
+.comment-form {
+    margin-top: 10px;
+}
+
+.comment-textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.comment-button {
+    background-color: #007BFF !important;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.comment-button:hover {
+    background-color: #0060c7 !important;
+}
+
+.comment-button:active {
+    background-color: #8dc4ff !important;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.comment-item {
+    margin-top: 10px;
+}

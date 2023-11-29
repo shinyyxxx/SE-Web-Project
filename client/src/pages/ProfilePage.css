@@ -1,0 +1,226 @@
+.TableTitle {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 130%;
+  font-weight: 600;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  max-width: 500px;
+  height: 70px;
+}
+.top-divider {
+  position: relative;
+  background-color: var(--color-silver-300);
+  width: 354px;
+  height: 4px;
+}
+.container-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.commu {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.frame-child {
+  position: relative;
+  border-radius: 50%;
+  background-color: #abdaa7;
+  width: 152px;
+  height: 152px;
+  z-index: 0;
+}
+.div,
+.ellipse-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div {
+  position: absolute;
+  margin: 0 !important;
+  top: 49px;
+  left: 31px;
+  line-height: 130%;
+  width: 89px;
+  height: 55px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.ellipse-parent {
+  flex-direction: row;
+  position: relative;
+  gap: var(--gap-3xs);
+}
+.email-textbox {
+  position: relative;
+  border-radius: var(--br-10xs);
+  background-color: var(--color-silver-200);
+  width: 181px;
+  height: 26px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.email-textbox-parent {
+  flex-direction: column;
+  gap: 16px;
+}
+.email-textbox-parent,
+.frame-parent,
+.inner,
+.container-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frame-parent {
+  flex-direction: row;
+  gap: 35px;
+  font-size: 70px;
+  font-family: var(--font-kokoro);
+}
+.inner,
+.container-parent {
+  overflow: auto;
+  flex-direction: column;
+}
+.inner {
+  background-color: var(--color-gainsboro-400);
+  padding: 0 var(--padding-lgi) var(--padding-xl);
+  gap: var(--gap-7xl);
+}
+.container-parent {
+  padding: var(--padding-12xl) var(--padding-8xl);
+}
+.inner-child {
+  align-self: stretch;
+}
+.inner1,
+.topsection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.inner1 {
+  background-color: var(--color-gainsboro-400);
+  overflow: hidden;
+  flex-direction: column;
+  padding: 0 var(--padding-lgi) var(--padding-xl);
+  gap: var(--gap-7xl);
+  min-width: 392px;
+  min-height: 266px;
+}
+.topsection {
+  display: flex;
+  flex-direction: column;
+}
+.inner-item {
+  position: relative;
+  width: 183px;
+  height: 205px;
+}
+.inner2,
+.logtime,
+.topsection-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inner2 {
+  background-color: var(--color-gainsboro-400);
+  flex-direction: row;
+  padding: var(--padding-8xl);
+  gap: var(--gap-15xl);
+}
+.logtime,
+.topsection-parent {
+  align-self: stretch;
+  height: 298px;
+  flex-direction: column;
+  padding: var(--padding-20xl) 28px;
+  box-sizing: border-box;
+}
+.topsection-parent {
+  height: 937px;
+  padding: var(--padding-284xl) var(--padding-11xs) var(--padding-284xl) 478px;
+  gap: 44px;
+  z-index: 0;
+  text-align: center;
+  font-size: var(--font-size-16xl);
+  color: var(--color-black);
+  font-family: var(--font-inter);
+}
+.backbutton-icon,
+.frame {
+  cursor: pointer;
+  height: 50px;
+  overflow: hidden;
+}
+.backbutton-icon {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  width: 50px;
+}
+.frame {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 65px;
+  flex-shrink: 0;
+}
+.profile-page,
+.sidebar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar {
+  margin: 0 !important;
+  position: absolute;
+  top: 0;
+  left: -2.5px;
+  background-color: var(--color-silver-200);
+  border: 2px solid var(--color-gray-500);
+  width: 476px;
+  height: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px 0;
+  gap: 390px;
+  z-index: 1;
+  padding-left: 90px;
+}
+.profile-page {
+  position: relative;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-black);
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-11xs) 0;
+  gap: var(--gap-3xs);
+  margin-left: 6rem;
+  z-index: 0;
+}
+
+.edit-icon{
+  width: 30px;
+  height: 50px;
+}
+
+.enrollL {
+  font-size: 20px;
+}
+.info{
+  height: 1000px;
+}

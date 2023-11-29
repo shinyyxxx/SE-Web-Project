@@ -1,0 +1,14 @@
+.new-reg-page {
+  position: relative;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-black);
+  box-sizing: border-box;
+  width: 100%;
+  height: 941px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 93px;
+}
